@@ -6,7 +6,6 @@ If you are running this app on a remote server but wish to test it on your local
 
  ```
 ssh -L [local_port]:[remote_host]:[remote_port] [user]@[remote_host]
-
  ```
 
 `-L` specifies local port forwarding. `local_port` is the port on your machine that you want to bind to. `remote_host` is the remote server that you want to connect to and run the API. `remote_port` is the port on the remote machine that you want to forward the connection to. For instance you could do
