@@ -13,3 +13,14 @@ ssh -L [local_port]:[remote_host]:[remote_port] [user]@[remote_host]
 ```
 ssh -L 8080:localhost:3000 user@remote.server.com
 ```
+
+To connect to the Azure API, make sure `AZURE_ENDPOINT` and `AZURE_API_KEY` are either defined in an environment file or set as environment variables. The first approach is what we followed in the code, whereas for the second choice you need to do the following
+```
+in bash:
+export AZURE_ENDPOINT="your_endpoint"
+export AZURE_API_KEY="your_api_key"
+
+in analyze.py:
+endpoint=os.getenv("AZURE_ENDPOINT")
+key=os.getenv("AZURE_API_KEY")
+```
