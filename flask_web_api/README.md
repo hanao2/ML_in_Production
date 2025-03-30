@@ -26,6 +26,6 @@ in analyze.py:
 endpoint=os.getenv("AZURE_ENDPOINT")
 key=os.getenv("AZURE_API_KEY")
 ```
-When calling app.run, ensure that the specified port matches the remote_port defined in the SSH forwarding configuration. Setting `debug=True` enables automatic code reloading when changes are made to the source code, which facilitates interactive testing and streamlines the development process.
+When calling app.run, ensure that `host=0.0.0.0` and the specified port matches `remote_port` defined in the SSH forwarding configuration. Setting `debug=True` enables automatic code reloading when changes are made to the source code, which facilitates interactive testing and streamlines the development process.
 
 
