@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation</title>
+    <title>Image2Text API</title>
 </head>
 <body>
+    <!-- Header with Image, Symbol, and Text -->
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <!-- Image -->
+        <img src="https://play-lh.googleusercontent.com/IBT-3se3Jl5HM52TwMsTk2vmIXybjEE0p6Vz6MEIuOJxVjyCiK1Yo6FwBq6JKp8sI6A" alt="Logo" style="height: 300px; width: auto; margin-right: 50px; margin-left: 200px;">
+
+        <!-- Symbol (e.g., a right arrow or custom icon) -->
+        <span style="font-size: 24px; margin-right: 10px;">➤</span>
+
+        <!-- Text -->
+        <span style="font-size: 24px; font-weight: bold;">"TEXT ON PHOTO"</span>
+    </div>
+    <br><br>
     <h1>API Documentation</h1>
 
     <section>
@@ -25,7 +37,16 @@
     <section>
         <h2>Request</h2>
         <p>
-            To analyze an image, send a GET request with a JSON object containing a single field <code>"uri"</code> pointing to the image to be analyzed.
+	To analyze an image, you have two options:<br> 
+        <p>
+	1. Upload it here.<br>
+	<form action="/upload" method="post" enctype="multipart/form-data">
+		<label for="file">Upload an image:</label>
+		<input type="file" name="file" id="file" accept="image/*" required>
+		<br><br>
+		<input type="submit" value="Upload Image">
+	</form><br><br>
+	2. Send a GET request with a JSON object containing a single field <code>"uri"</code> pointing to the image to be analyzed.
         </p>
         <pre>
             <code>

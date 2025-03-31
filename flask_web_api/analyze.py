@@ -22,7 +22,23 @@ def read_image(uri):
     maxRetries = 10
 
     # SDK call
-    rawHttpResponse = client.read(uri, language="fa", raw=True)
+    #rawHttpResponse = client.read(uri, language="fa", raw=True)
+    # Check if the URI is a local file path or a URL
+    if uri.startswith('http'):  # If it's a URL
+        image_uri = uri
+    else:  # If it's a local file path
+        if os.path.exists(uri):  # Make sure the file exists
+            with open(uri, "rb") as image_file:
+                image_uri = image_file.read()  # Read the image content
+                print(image_uri)
+        else:
+            return "Error: Local file path does not exist"
+
+    # SDK call
+    if isinstance(image_uri, bytes):  # If it's a local image read as bytes
+        rawHttpResponse = client.read_in_stream(image_uri, language="en", raw=True)
+    else:  # If it's a URL
+        rawHttpResponse = client.read(image_uri, language="en", raw=True)
 
     # Get ID from returned headers
     operationLocation = rawHttpResponse.headers["Operation-Location"]

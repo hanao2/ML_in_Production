@@ -28,4 +28,9 @@ key=os.getenv("AZURE_API_KEY")
 ```
 When calling app.run, ensure that `host=0.0.0.0` and the specified port matches `remote_port` defined in the SSH forwarding configuration. Setting `debug=True` enables automatic code reloading when changes are made to the source code, which facilitates interactive testing and streamlines the development process.
 
+You can either upload your image on the web interface or provide it through command-line using `curl`. For instance:
+```
+curl -X GET -H "Content-Type: application/json" -d '{"uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5b9qa1KsWgSKE2GyaZBCIjzVn6At7YA3fKw&s"}'  http://127.0.0.1:3000/api/v1/analysis/
+```
+
 
